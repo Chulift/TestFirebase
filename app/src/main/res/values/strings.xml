@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">TestFirebase</string>
     <string name="todo">
-        Firebase Object contain 2 fields (param1 and param2)
-        TODO : fill in param1 and param2 and click SEND.
-        System will notify the changed by Snackbar.
+        Firebase Object contain 2 fields (bpm and gsr)
+        TODO : fill in bpm and gsr and click SEND.
+        System will notify the added data below.
     </string>
+    <string name="bpm">BPM</string>
+    <string name="gsr">GSR</string>
+    <string name="emo">Emo</string>
+    <string name="timestamp">Timestamp_C</string>
+    <string name="Time">Time</string>
+    <string name="last_received">Last Received Data</string>
 </resources>

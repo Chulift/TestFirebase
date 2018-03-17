@@ -12,30 +12,38 @@ import java.util.Map;
 
 @IgnoreExtraProperties
 public class Heart {
-
-    public int param1;
-    public int param2;
+    public int BPM;
+    public String Emo;
+    public int GSR;
+    public long TIMESTAMP_C;
+    public String Time;
 
     public Heart() {
 
     }
 
-    public Heart(int param1, int param2) {
-        this.param1 = param1;
-        this.param2 = param2;
+    public Heart(int bpm, String emo, int gsr, long timestamp, String time) {
+        this.BPM = bpm;
+        this.Emo = emo;
+        this.GSR = gsr;
+        this.TIMESTAMP_C = timestamp;
+        this.Time = time;
     }
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("param1", param1);
-        result.put("param2", param2);
+        result.put("BPM", BPM);
+        result.put("Emo", Emo);
+        result.put("GSR", GSR);
+        result.put("TIMESTAMP_C", TIMESTAMP_C);
+        result.put("Time", Time);
 
         return result;
     }
 
     @Override
     public String toString() {
-        return "{ param1:" + param1 + ", param2" + param2 + " }";
+        return this.BPM + ":" + this.GSR + ":" + this.Emo + ":" + this.TIMESTAMP_C + ":" + this.Time;
     }
 }
