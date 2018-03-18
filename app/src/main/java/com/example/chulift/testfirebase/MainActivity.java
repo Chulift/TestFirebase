@@ -61,18 +61,32 @@ public class MainActivity extends AppCompatActivity
     private void send() {
         //timestamp
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        Instant instant = timestamp.toInstant();
+        Instant instant = null;
+
         //date
         Date now = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss a", Locale.ENGLISH);
 
-        Map heart = new Heart(
-                Integer.parseInt(((EditText) (findViewById(R.id.param1))).getText().toString()),
-                "Bliss",
-                Integer.parseInt(((EditText) (findViewById(R.id.param2))).getText().toString()),
-                instant.toEpochMilli(),
-                simpleDateFormat.format(now)
-        ).toMap();
+        Map heart = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            instant = timestamp.toInstant();
+            heart = new Heart(
+                    Integer.parseInt(((EditText) (findViewById(R.id.param1))).getText().toString()),
+                    "Bliss",
+                    Integer.parseInt(((EditText) (findViewById(R.id.param2))).getText().toString()),
+                    instant.toEpochMilli(),
+                    simpleDateFormat.format(now)
+            ).toMap();
+        }
+        else {
+            heart = new Heart(
+                    Integer.parseInt(((EditText) (findViewById(R.id.param1))).getText().toString()),
+                    "Bliss",
+                    Integer.parseInt(((EditText) (findViewById(R.id.param2))).getText().toString()),
+                    timestamp.getTime(),
+                    simpleDateFormat.format(now)
+            ).toMap();
+        }
         mDatabaseReference.push().setValue(heart);
     }
 
