@@ -15,14 +15,14 @@ public class Heart {
     public int BPM;
     public String Emo;
     public int GSR;
-    public long TIMESTAMP_C;
+    public String TIMESTAMP_C;
     public String Time;
 
     public Heart() {
 
     }
 
-    public Heart(int bpm, String emo, int gsr, long timestamp, String time) {
+    public Heart(int bpm, String emo, int gsr, String timestamp, String time) {
         this.BPM = bpm;
         this.Emo = emo;
         this.GSR = gsr;

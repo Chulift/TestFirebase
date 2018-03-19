@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity
                     Integer.parseInt(((EditText) (findViewById(R.id.param1))).getText().toString()),
                     "Bliss",
                     Integer.parseInt(((EditText) (findViewById(R.id.param2))).getText().toString()),
-                    instant.toEpochMilli(),
+                    instant.toString(),
                     simpleDateFormat.format(now)
             ).toMap();
         }
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity
                     Integer.parseInt(((EditText) (findViewById(R.id.param1))).getText().toString()),
                     "Bliss",
                     Integer.parseInt(((EditText) (findViewById(R.id.param2))).getText().toString()),
-                    timestamp.getTime(),
+                    timestamp.toString(),
                     simpleDateFormat.format(now)
             ).toMap();
         }
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity
             bpmText.setText(String.valueOf(heart.BPM));
             gsrText.setText(String.valueOf(heart.GSR));
             emoText.setText(String.valueOf(heart.Emo));
+
 
         } catch (Exception e) {
             Log.e("DataSnapshot", e.toString());
