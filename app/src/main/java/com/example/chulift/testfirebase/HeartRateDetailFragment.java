@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.Manifest;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class HeartRateDetailFragment extends Fragment
     private TextView tvEmo;
     private TextView tvGSR;
     private TextView tvEmergencyCall;
+    private EditText etPhoneNo;
 
     //FireBase
     private static final String ROOT = "HEART";
@@ -65,6 +67,7 @@ public class HeartRateDetailFragment extends Fragment
         tvGSR = view.findViewById(R.id.gsrTextView);
         tvEmergencyCall = view.findViewById(R.id.emergencyCallTextView);
         view.findViewById(R.id.settingsBtn).setOnClickListener(this);
+        etPhoneNo = view.findViewById(R.id.phoneNoEditText);
     }
 
     private void setupFireBase() {
@@ -167,12 +170,23 @@ public class HeartRateDetailFragment extends Fragment
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
+            if (!basicCheck()) {
+                Toast.makeText(getActivity(), "Please specify phone no below.", Toast.LENGTH_SHORT).show();
+                return;
+            }
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:0959157162"));
+            callIntent.setData(Uri.parse("tel:" + etPhoneNo.getText().toString()));
             getActivity().startActivity(callIntent);
         } else if (!isCallEnable) {
             Toast.makeText(getActivity(), "Please enable call service in settings.", Toast.LENGTH_SHORT).show();
         }
         Toast.makeText(getActivity(), "Please enable call service for this app.", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean basicCheck() {
+        if (etPhoneNo.getText().toString().equals("")) {
+            return false;
+        }
+        return true;
     }
 }
