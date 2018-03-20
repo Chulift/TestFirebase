@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/call_settings">
+
+    <PreferenceCategory
+        android:title="@string/call_settings">
+
+        <SwitchPreference
+            android:key="enable_calling_preference"
+            android:title="@string/enable_calling" />
+        <!--
+        <EditTextPreference
+            android:key="phone_num_preference"
+            android:title="@string/phone_number"
+            android:dialogTitle="@string/phone_number_dialog_title"
+            android:summary="@string/phone_number_summary" />
+        -->
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestFirebase</string>
+    <string name="app_name">Emotional Monitoring</string>
     <string name="todo">
         Firebase Object contain 2 fields (bpm and gsr)
         TODO : fill in bpm and gsr and click SEND.
@@ -11,4 +11,19 @@
     <string name="timestamp">Timestamp_C</string>
     <string name="Time">Time</string>
     <string name="last_received">Last Received Data</string>
+
+    <!-- Output -->
+    <string name="bpm_output_text">BPM = </string>
+    <string name="gsr_output_text">GSR = </string>
+    <string name="analyzed_emotion_text">Analyzed Emotion :</string>
+    <string name="call_settings">Calling Settings</string>
+    <string name="emergency_call">Emergency Call : </string>
+    <string name="blank"> </string>
+    <string name="enable_calling">Enable Calling</string>
+
+    <!-- Preferences -->
+
+    <string name="phone_number">Phone number : </string>
+    <string name="phone_number_summary">Specify the emergency call no.</string>
+    <string name="phone_number_dialog_title">Phone number</string>
 </resources>

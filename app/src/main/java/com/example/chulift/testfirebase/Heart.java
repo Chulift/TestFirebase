@@ -18,18 +18,6 @@ public class Heart {
     public String TIMESTAMP_C;
     public String Time;
 
-    public Heart() {
-
-    }
-
-    public Heart(int bpm, String emo, int gsr, String timestamp, String time) {
-        this.BPM = bpm;
-        this.Emo = emo;
-        this.GSR = gsr;
-        this.TIMESTAMP_C = timestamp;
-        this.Time = time;
-    }
-
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
