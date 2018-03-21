@@ -174,13 +174,22 @@ public class HeartRateDetailFragment extends Fragment
                 Toast.makeText(getActivity(), "Please specify phone no below.", Toast.LENGTH_SHORT).show();
                 return;
             }
+        } else if (!isCallEnable) {
+            Toast.makeText(getActivity(), "Please enable call service in settings.", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    Settings.REQUEST_CALL_PERMISSION
+            );
+        }
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + etPhoneNo.getText().toString()));
             getActivity().startActivity(callIntent);
-        } else if (!isCallEnable) {
-            Toast.makeText(getActivity(), "Please enable call service in settings.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), "Please enable call service for this app.", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(getActivity(), "Please enable call service for this app.", Toast.LENGTH_SHORT).show();
     }
 
     private boolean basicCheck() {
