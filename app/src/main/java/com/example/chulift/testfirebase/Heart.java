@@ -18,6 +18,10 @@ public class Heart {
     public String TIMESTAMP_C;
     public String Time;
 
+    public Heart() {
+
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
