@@ -145,7 +145,7 @@ public class HeartRateDetailFragment extends Fragment
     }
 
     private void checkBPM(final int bpm) {
-        if (bpm >= Settings.MAX_BPM) {
+        if (bpm >= Settings.MAX_BPM || bpm <= Settings.MIN_BPM) {
             if (timeStamp == 0) {
                 timeStamp = System.currentTimeMillis() / 1000;
             }

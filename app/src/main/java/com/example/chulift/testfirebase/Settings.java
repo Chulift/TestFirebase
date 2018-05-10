@@ -10,6 +10,7 @@ class Settings {
     static final String PHONE_NO_PREFERENCE = "phone_num_preference";
     static final String PHONE_NO_DEF = "";
     static final int MAX_BPM = 150;
+    static final int MIN_BPM = 50;
     static final int maxTime = 10000;
     static final int interval = 1000;
 }
